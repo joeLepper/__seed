@@ -1,0 +1,22 @@
+{
+  "name": "Seed",
+  "version": "0.0.1",
+  "description": "A node / angular starting point",
+  "main": "app.js",
+  "scripts": {
+    "test": "test",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joeLepper/__seed.git"
+  },
+  "author": "joe lepper",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "gitHead": "f0cda9414298ced9e375cc268e3bea869a3a982f",
+  "dependencies": {
+    "express": "~3.2.0",
+    "grunt": "~0.4.1"
+  }
+}

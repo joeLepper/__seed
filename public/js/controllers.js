@@ -1,17 +1,7 @@
-houseChooser.controller('WelcomeController', function WelcomeController($scope, $location) {
-  $scope.criteria = []
-
-  $scope.submit = function(){
-    category = { criterion : $('#criterion').val()
-               , type      : $('#type').val() };
-               
-    $scope.criteria.push(category);
-  };
-
-  $scope.types = ['check','rating'];
+SeedApp.controller('WelcomeController', function WelcomeController($scope, $location) {
 });
 
-houseChooser.controller('NavbarController', function NavbarController($scope, $location) {
+SeedApp.controller('NavbarController', function NavbarController($scope, $location) {
   $scope.routeIs = function(routeName) {
     return $location.path() === routeName;
   };

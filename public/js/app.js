@@ -1,6 +1,6 @@
 'use strict';
 
-var houseChooser = angular.module('houseChooser', [])
+var SeedApp = angular.module('seedApp', [])
 .config(function($routeProvider) {
   $routeProvider.
    when('/', {
