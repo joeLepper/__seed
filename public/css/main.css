@@ -1,0 +1,53 @@
+/* app css stylesheet */
+html{
+  overflow-x: hidden;
+}
+body{
+  background-color: #333333;
+  font-size: 1em;
+  overflow-x: hidden;
+}
+h1{
+  color: #ff9900;
+}
+p{
+  color:#ffffff;
+}
+.outer-container{
+  text-align: center;
+}
+#trigger-column, #target-column {
+  width: 50%;
+  box-sizing: border-box;
+  float: left;
+  padding: 1%;
+}
+.trigger {
+  font-size: 20px;
+  width: 50%;
+  margin: 0 auto 200px;
+  padding: 20px 0;
+  color: #fff;
+  cursor: pointer;
+  background: #666;
+  position: relative;
+}
+
+.target {
+  font-size: 20px;
+  width: 25%;
+  background: #ff0099;
+  padding: 20px 0;
+  color: #fff;
+  margin: 0 auto 200px;
+  // -webkit-transition: all 0.1s, -webkit-transform 0.1s;
+  position: relative;
+}
+.target.activated {
+  background: #e6e6e6;
+  color: #000;
+  -webkit-transform: rotate(30deg);
+}
+#scroll-top{
+  position: fixed;
+}
