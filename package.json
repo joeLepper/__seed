@@ -12,11 +12,17 @@
     "url": "https://github.com/joeLepper/__seed.git"
   },
   "author": "joe lepper",
+  "contributors": "Bob Zavala",
   "license": "MIT",
   "readmeFilename": "README.md",
   "gitHead": "f0cda9414298ced9e375cc268e3bea869a3a982f",
   "dependencies": {
-    "express": "~3.2.0",
-    "grunt": "~0.4.1"
+    "express": "~3.2.0"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-nodemon": "~0.1.1",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-concurrent": "~0.4.0"
   }
 }
