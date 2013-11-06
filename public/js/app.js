@@ -1,13 +1,10 @@
 'use strict';
 
-var SeedApp = angular.module('seedApp', [])
-.config(function($routeProvider) {
-  $routeProvider.
-   when('/', {
-     controller: 'WelcomeController',
-     templateUrl: 'views/welcome.html'
-   }).
-   otherwise({ redirectTo: '/' });
-})
+var App = angular.module('App', []);
 
-
+App.controller('HelloCtrl', function HelloCtrl($scope) {
+  $scope.yourName = "your name";
+  $scope.alertName = function(){
+    alert($scope.yourName);
+  };
+});

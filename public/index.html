@@ -2,9 +2,13 @@
 <html>
   <head>
   </head>
-  <body ng-app>
-    <input type="text" ng-model="yourName" placeholder="Enter your name here">
-    <h1>Hello {{yourName}}! It's nice to see you.</h1>
+  <body ng-app="App" ng-controller="HelloCtrl">
+    <form id="hello_form" ng-submit="alertName()">
+      <input type="text" ng-model="yourName" placeholder="Enter your name here">
+      <h1>Hello {{yourName}}! It's nice to see you.</h1>
+      <button type="submit" form="hello_form">Submit</button>
+    </form>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+    <script src="js/app.js"></script>
   </body>
 </html>
