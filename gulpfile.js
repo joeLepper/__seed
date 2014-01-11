@@ -21,12 +21,13 @@ var gulp     = require('gulp')
   // ---- location arrays ---- //
   // ------------------------- //
 
-  , jsLocations   = ['src/js/index.js', 'src/js/**/*.js']
-  , cssLocations  = ['public/css/*.css']
-  , sassLocations = ['src/sass/*.scss', 'src/sass/**/*.scss']
-  , jadeLocations = ['src/jade/views/*.jade']
-  , indexLocation = ['src/jade/index.jade']
-  , viewLocations = ['src/html/*.html'];
+  , jsLocations     = ['src/js/index.js', 'src/js/**/*.js']
+  , cssLocations    = ['public/css/*.css']
+  , sassLocations   = ['src/sass/*.scss', 'src/sass/**/*.scss']
+  , jadeLocations   = ['src/jade/views/*.jade']
+  , indexLocation   = ['src/jade/index.jade']
+  , viewLocations   = ['src/html/*.html']
+  , serverLocations = ['app.js', 'server/server.js', 'server/request.js'];
 
 // -------------------------- //
 // ---- individual tasks ---- //
@@ -96,7 +97,14 @@ gulp.task('cacheTemplates', function(){
 });
 
 gulp.task('server', function() {
-  if (node) node.kill();
+  if (node){
+    node.kill();
+    console.log('[server] Restarting the server...');
+  }
+  else {
+    console.log('[server] Starting the server...')
+  }
+  console.log('Restarting')
   node = spawn('node', ['app.js'], {stdio: 'inherit'});
   node.on('close', function (code) {
     if (code === 8) {
@@ -136,6 +144,10 @@ gulp.task('default', function(){
   gulp.watch(viewLocations, function(){
     gulp.run('cacheTemplates');
   });
+
+  gulp.watch(serverLocations, function(){
+    gulp.run('server');
+  })
 
   lrServer.listen(35729, function (err) {
     if (err) return console.log(err);
