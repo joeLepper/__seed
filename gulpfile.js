@@ -119,7 +119,7 @@ gulp.task('server', function() {
 
 
 gulp.task('default', function(){
-  gulp.run('karma', 'jsLint', 'sass', 'cssLint', 'jade', 'build', 'server');
+  gulp.run('karma', 'jsLint', 'sass', 'cssLint', 'jade', 'index', 'build', 'server');
 
   gulp.watch(jsLocations, function(){
     gulp.run('jsLint', 'build');
@@ -147,7 +147,7 @@ gulp.task('default', function(){
 
   gulp.watch(serverLocations, function(){
     gulp.run('server');
-  })
+  });
 
   lrServer.listen(35729, function (err) {
     if (err) return console.log(err);
