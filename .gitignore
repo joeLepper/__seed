@@ -20,4 +20,4 @@ public/*.js
 public/**/*.css
 public/index.html
 src/html
-src/templates
+src/js/templates
