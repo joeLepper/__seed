@@ -6,7 +6,7 @@ var express    = require('express')
 
 app.use(express.static(__dirname + '/public'));
 
-app.get('/', function(req,res){
+app.get('/*', function(req,res){
   console.log('Service!');
 	reqHandle.start(req,res);
 });

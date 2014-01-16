@@ -4,10 +4,16 @@ html(lang="en")
     link(rel="stylesheet" type="text/css" href='css/main.css')
     title='A Seed'
   body(ng-app='seedApp')
-    h1 From Whence Grows an App
+    h1 From Whence Grows an App, dude.
     #container.col(ng-view)
     script(type='text/javascript' src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.js')
     script(type='text/javascript' src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-route.js')
     script(type='text/javascript' src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-resource.js')
+    script.
+        if(!window.angular) document.write('<script src="js/vendor/angular.js">');
+    script.
+        if(!window.angular) document.write('<script src="js/vendor/angular-route.js">');
+    script.
+        if(!window.angular) document.write('<script src="js/vendor/angular-resource.js">');
     script(type='text/javascript' src='js/app.noted.js')
     script(src='http://localhost:35729/livereload.js')

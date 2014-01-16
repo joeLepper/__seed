@@ -36,6 +36,8 @@
     "gulp-minify-html": "~0.1.0",
     "gulp-jade": "~0.3.0",
     "karma-jasmine": "~0.1.5",
-    "tiny-lr": "0.0.5"
+    "tiny-lr": "0.0.5",
+    "gulp-flatten": "0.0.2",
+    "gulp-requirejs": "~0.1.3"
   }
 }

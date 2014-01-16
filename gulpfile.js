@@ -13,6 +13,7 @@ var gulp     = require('gulp')
   , html2js  = require('gulp-ng-html2js')
   , stylish  = require('jshint-stylish')
   , htmlmin  = require('gulp-minify-html')
+  , flatten  = require('gulp-flatten')
   , spawn    = require('child_process').spawn
   , lrServer = lr()
   , node
@@ -21,10 +22,10 @@ var gulp     = require('gulp')
   // ---- location arrays ---- //
   // ------------------------- //
 
-  , jsLocations     = ['src/js/index.js', 'src/js/**/*.js']
+  , jsLocations     = ['src/js/index.js', 'src/js/**/*.js', 'src/js/directives/**/js/*.js']
   , cssLocations    = ['public/css/*.css']
   , sassLocations   = ['src/sass/*.scss', 'src/sass/**/*.scss']
-  , jadeLocations   = ['src/jade/views/*.jade']
+  , jadeLocations   = ['src/js/directives/**/jade/*.jade', 'src/jade/views/*.jade']
   , indexLocation   = ['src/jade/index.jade']
   , viewLocations   = ['src/html/*.html']
   , serverLocations = ['app.js', 'server/server.js', 'server/request.js'];
@@ -78,7 +79,14 @@ gulp.task('build', function(){
 gulp.task('jade', function(){
   gulp.src(jadeLocations)
     .pipe(jade({ pretty : true }))
-    .pipe(gulp.dest('src/html'));
+    .pipe(rename(function(dir,base,ext){
+      var result = base + ext;
+      console.log(dir);
+      console.log(result);
+      return result;
+    }))
+    .pipe(flatten())
+    .pipe(gulp.dest('./src/html'));
 });
 
 gulp.task('index', function(){
@@ -105,10 +113,10 @@ gulp.task('server', function() {
     console.log('[server] Starting the server...')
   }
   console.log('Restarting')
-  node = spawn('node', ['app.js'], {stdio: 'inherit'});
+  node = spawn('node', ['index.js'], {stdio: 'inherit'});
   node.on('close', function (code) {
     if (code === 8) {
-      gulp.log('Error detected, waiting for changes...');
+      console.log('Error detected, waiting for changes...');
     }
   });
 });
@@ -119,7 +127,14 @@ gulp.task('server', function() {
 
 
 gulp.task('default', function(){
-  gulp.run('karma', 'jsLint', 'sass', 'cssLint', 'jade', 'index', 'build', 'server');
+  gulp.run( 'karma'
+          , 'jsLint'
+          , 'sass'
+          , 'cssLint'
+          , 'jade'
+          , 'index'
+          , 'build'
+          , 'server');
 
   gulp.watch(jsLocations, function(){
     gulp.run('jsLint', 'build');

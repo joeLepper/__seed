@@ -2,11 +2,11 @@ describe('Testing sampleOne directive', function() {
   var scope, controller;
 
   beforeEach(function (){
-    module('seedCtrls');
+    module('WelcomeCtrls');
 
     inject(function($controller, $rootScope) {
       scope = $rootScope.$new();
-      controller = $controller( 'WelcomeController', { $scope : scope } );
+      controller = $controller( 'welcomeCtrl', { $scope : scope } );
     });
   });
 
