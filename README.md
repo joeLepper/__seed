@@ -10,7 +10,7 @@ My purposes here are to have a project which is configured with an environment t
 * a server which bounces itself when it notices changes in its source code
 * [livereload](https://github.com/vohof/gulp-livereload) for more pleasant front-end dev
 * a single index file which requires (from my server) a single JS file and a single CSS file (plus the Angular source via CDN)
-* live testing with [karma](http://karma-runner.github.io/0.10/index.html) and [jasmine](http://pivotal.github.io/jasmine/)
+* live testing with [karma](http://karma-runner.github.io/0.10/index.html) and [jasmine](https://jasmine.github.io/)
 
 
 Getting started
